@@ -10,7 +10,7 @@ class wscc // WebSocketControlerClient
     #pingTimer
     #pingRequestTimer
     #url
-    constructor(url)
+    constructor(url, port, secure)
     {
         this.socketCreate = undefined;
         this.disconnect = undefined; 
@@ -20,7 +20,7 @@ class wscc // WebSocketControlerClient
         this.#connected = false
         this.#onArray =[] // [{event, callback}]
         
-        this.#url = url;
+        this.#url = (secure ? "wss://" : "ws://") + url + ":" +port;
 
         let timer = () =>
         {

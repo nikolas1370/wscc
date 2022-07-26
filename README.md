@@ -1,11 +1,10 @@
 # wscc WebSocketControlerClient
 npm install wscc <br>
-для сервера <a href="https://github.com/nikolas1370/wscs">тут</a>
+для сервера <a href="https://www.npmjs.com/package/wscs">тут</a>
 ```
 import wscc from "wscc"
 
-// "ws://localhost:3010" без ssl 
-this.ws = new wscc("wss://localhost:3010");
+this.ws = new wscc("localhost", "3010", true); // true === secure
 this.ws.socketCreate = () =>
 {
     console.log("socketCreate");
