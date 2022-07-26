@@ -1,6 +1,6 @@
 # wscc WebSocketControlerClient
 npm install wscc <br>
-для сервера <a href="https://www.npmjs.com/package/wscs">тут</a>
+для сервера <a href="https://github.com/nikolas1370/wscs">тут</a>
 ```
 import wscc from "wscc"
 
