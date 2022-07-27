@@ -4,34 +4,34 @@ npm install wscc <br>
 ```
 import wscc from "wscc"
 
-this.ws = new wscc("localhost", "3010", true); // true === secure
-this.ws.socketCreate = () =>
+const ws = new wscc("localhost", "3010", true); // true === secure
+ws.socketCreate = () =>
 {
     console.log("socketCreate");
-    this.ws.send("incomingEvent", undefined)
-    this.ws.send("incomingEvent", null)
-    this.ws.send("incomingEvent", 12)
-    this.ws.send("incomingEvent", "12")
-    this.ws.send("incomingEvent", {})
-    this.ws.send("incomingEvent",  ArrayBuffer | DataView , {descriphen  : "клієнт получе цей обєк разом із Buffer", descriphen2 : "не обов'язково"})
+    ws.send("incomingEvent", undefined)
+    ws.send("incomingEvent", null)
+    ws.send("incomingEvent", 12)
+    ws.send("incomingEvent", "12")
+    ws.send("incomingEvent", {})
+    ws.send("incomingEvent",  ArrayBuffer | DataView , {descriphen  : "клієнт получе цей обєк разом із Buffer", descriphen2 : "не обов'язково"})
 };
-this.ws.disconnect = () =>
+ws.disconnect = () =>
 {
     console.log("disconnect");
 }; 
-this.ws.reconnecting = () =>
+ws.reconnecting = () =>
 {
     console.log("reconnecting");
 };
 
 // підписуєшся на вхідне повідомленя
-this.ws.on("event", (data, header) =>
+ws.on("event", (data, header) =>
 {
     console.log(data, header)
-    this.ws.removeOn("event") // тепер ця подія небуде працювать
+    ws.removeOn("event") // тепер ця подія небуде працювать
 });
 
 setInterval(() => 
 {
-    console.log(this.ws.connected)// тіки для читаня
+    console.log(ws.connected)// тіки для читаня
 }, 5000);
