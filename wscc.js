@@ -51,13 +51,13 @@ class wscc // WebSocketControlerClient
             {
                 timer();
 
+                for (let i = 0; i < this.#queue.length; i++) 
+                        this.ws.send(this.#queue[i]);      
+                    
+                this.#queue.length = 0;
                 this.#connected = true
                 if(!firstConnected && typeof(this.reconnecting) === "function")
                 {
-                    for (let i = 0; i < this.#queue.length; i++) 
-                        this.ws.send(this.#queue[i]);      
-                    
-                    this.#queue.length = 0;
                     this.reconnecting();
                 }
                 else if(typeof(this.socketCreate) === "function")
